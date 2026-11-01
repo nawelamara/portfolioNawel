@@ -1,379 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nawel Amara | Portfolio</title>
-<meta name="description" content="Nawel Amara — Computer Engineer, Full-Stack & AI-Integrated Systems.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-:root{
-  --bg:#ffffff; --bg-alt:#f7f8fa; --text:#1a1f2b; --muted:#5b6475;
-  --line:#e5e7eb; --accent:#1d4ed8; --accent-soft:#eef2ff;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:16px}
-a{color:inherit;text-decoration:none}
-.container{max-width:1000px;margin:0 auto;padding:0 24px}
-section{padding:88px 0}
-section:nth-of-type(even){background:var(--bg-alt)}
-h2{font-size:1.9rem;font-weight:700;margin-bottom:8px}
-.lead{color:var(--muted);margin-bottom:44px}
-.eyebrow{display:block;color:var(--accent);font-weight:600;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nawel Amara — graduate software engineer and AI research intern exploring artificial intelligence and human perception.">
+  <meta name="theme-color" content="#302838">
+  <title>Nawel Amara | Software Engineer & AI Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --accent: #bd7658;
+      --accent-soft: rgba(189,118,88,.14);
+      --sidebar: #302838;
+      --bg: #fcfaf7;
+      --text: #342f35;
+      --muted: #79727a;
+      --line: #e9e2dc;
+      --soft: #f7f1ec;
+      --sidebar-width: 21rem;
+      --content-width: 54rem;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.78 "DM Sans", system-ui, sans-serif; }
+    a { color: inherit; text-decoration-color: rgba(189,118,88,.55); text-underline-offset: .22em; }
+    a:hover { color: var(--accent); }
+    .sidebar {
+      position: fixed; inset: 0 auto 0 0; width: var(--sidebar-width); min-height: 100vh;
+      display: flex; align-items: center; justify-content: center; padding: 2rem 1.5rem;
+      background: var(--sidebar); color: rgba(255,255,255,.82); text-align: center;
+    }
+    .sidebar-inner { width: 100%; max-width: 18rem; }
+    .avatar {
+      width: 7.2rem; height: 7.2rem; margin: 0 auto 1.3rem; border-radius: 50%;
+      display: grid; place-items: center; background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.24); color: #fff; font-size: 1.65rem; font-weight: 700;
+      letter-spacing: -.06em; overflow: hidden;
+    }
+    .avatar img { width: 100%; height: 100%; display: block; object-fit: cover; border-radius: 50%; }
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid transparent;z-index:50;transition:border-color .2s}
-nav.scrolled{border-bottom-color:var(--line)}
-.nav-inner{display:flex;justify-content:space-between;align-items:center;height:68px}
-.logo{font-weight:700;font-size:1.15rem}
-.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{font-size:.94rem;color:var(--muted);font-weight:500;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--accent)}
-.burger{display:none;background:none;border:none;font-size:1.3rem;color:var(--text);cursor:pointer}
-
-/* HERO */
-#home{padding:150px 0 100px}
-.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:center}
-.hero h1{font-size:3rem;line-height:1.15;font-weight:700;letter-spacing:-.02em}
-.hero .role{font-size:1.25rem;color:var(--accent);font-weight:600;margin:12px 0 18px}
-.hero p{color:var(--muted);max-width:540px}
-.btns{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;font-weight:600;font-size:.95rem;transition:all .2s;border:1px solid var(--accent);cursor:pointer;font-family:inherit}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{background:#1e40af;border-color:#1e40af}
-.btn-outline{background:#fff;color:var(--accent)}
-.btn-outline:hover{background:var(--accent-soft)}
-.socials{display:flex;gap:10px;margin-top:28px}
-.socials a{width:40px;height:40px;border:1px solid var(--line);border-radius:8px;display:grid;place-items:center;color:var(--muted);transition:all .2s}
-.socials a:hover{color:var(--accent);border-color:var(--accent)}
-.photo{width:280px;height:280px;border-radius:50%;background:var(--accent-soft);border:6px solid #fff;box-shadow:0 10px 40px rgba(29,78,216,.15);display:grid;place-items:center;margin-left:auto;overflow:hidden}
-.photo img{width:100%;height:100%;object-fit:cover}
-.photo .initials{font-size:5rem;font-weight:700;color:var(--accent)}
-
-/* ABOUT */
-.about{display:grid;grid-template-columns:1.5fr 1fr;gap:48px}
-.about p{color:var(--muted);margin-bottom:14px}
-.about strong{color:var(--text);font-weight:600}
-.facts{list-style:none;border:1px solid var(--line);border-radius:12px;background:#fff;padding:8px 22px}
-.facts li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);font-size:.94rem}
-.facts li:last-child{border-bottom:none}
-.facts i{color:var(--accent);width:18px;margin-top:4px}
-.facts small{display:block;color:var(--muted);font-size:.8rem}
-
-/* SKILLS */
-.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px;transition:box-shadow .2s,transform .2s}
-.card:hover{box-shadow:0 8px 28px rgba(16,24,40,.08);transform:translateY(-3px)}
-.card h3{font-size:1.02rem;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px}
-.card h3 i{color:var(--accent)}
-.tags{display:flex;flex-wrap:wrap;gap:7px}
-.tag{font-size:.8rem;padding:4px 11px;border-radius:6px;background:var(--accent-soft);color:var(--accent);font-weight:500}
-
-/* EXPERIENCE */
-.timeline{border-left:2px solid var(--line);margin-left:6px}
-.job{position:relative;padding:0 0 40px 32px}
-.job:last-child{padding-bottom:0}
-.job::before{content:'';position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--accent)}
-.job-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.job h3{font-size:1.08rem;font-weight:600}
-.job .org{color:var(--accent);font-weight:500;font-size:.95rem}
-.job .date{color:var(--muted);font-size:.88rem;white-space:nowrap}
-.job ul{margin:10px 0 12px 18px;color:var(--muted);font-size:.95rem}
-.job li{margin-bottom:4px}
-
-/* PROJECTS */
-.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.project{display:flex;flex-direction:column}
-.project .ic{width:44px;height:44px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:1.15rem;margin-bottom:16px}
-.project h3{margin-bottom:8px}
-.project p{color:var(--muted);font-size:.93rem;flex:1;margin-bottom:16px}
-
-/* EDUCATION */
-.edu-list{display:grid;gap:16px}
-.edu{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 24px}
-.edu h3{font-size:1rem;font-weight:600}
-.edu .school{color:var(--muted);font-size:.93rem}
-.edu .date{color:var(--muted);font-size:.88rem}
-h3.sub{font-size:1.2rem;margin:48px 0 18px}
-.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.cert{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
-.cert i{font-size:1.4rem;color:var(--accent);width:28px;text-align:center}
-.cert span{font-size:.92rem;font-weight:500}
-.cert small{display:block;color:var(--muted);font-weight:400}
-
-/* CONTACT */
-.contact{display:grid;grid-template-columns:1fr 1.3fr;gap:40px}
-.c-list{display:grid;gap:14px;align-content:start}
-.c-item{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;transition:border-color .2s}
-a.c-item:hover{border-color:var(--accent)}
-.c-item i{color:var(--accent);font-size:1.1rem;width:22px;text-align:center}
-.c-item small{display:block;color:var(--muted);font-size:.8rem}
-.c-item span{font-size:.94rem;word-break:break-word}
-form{background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px;display:grid;gap:14px}
-input,textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:.95rem;color:var(--text);background:#fff}
-input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
-textarea{min-height:130px;resize:vertical}
-form .btn{justify-content:center}
-
-footer{text-align:center;padding:28px 20px;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line)}
-
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
-.reveal.visible{opacity:1;transform:none}
-
-@media(max-width:860px){
-  .hero,.about,.contact{grid-template-columns:1fr}
-  .photo{margin:0 auto;width:200px;height:200px;order:-1}
-  .photo .initials{font-size:3.6rem}
-  .hero{text-align:center}
-  .hero p{margin:0 auto}
-  .btns,.socials{justify-content:center}
-  .hero h1{font-size:2.3rem}
-  #home{padding:120px 0 70px}
-}
-@media(max-width:720px){
-  .burger{display:block}
-  .nav-links{position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);display:none}
-  .nav-links.open{display:flex}
-  .nav-links a{display:block;padding:14px 24px}
-  section{padding:68px 0}
-}
-</style>
+    .name { display: block; color: #fff; text-decoration: none; font-size: 1.55rem; line-height: 1.25; font-weight: 700; letter-spacing: -.045em; font-family: "Playfair Display", Georgia, serif; }
+    .role { margin: .75rem 0 1.8rem; color: rgba(255,255,255,.67); font-size: .84rem; line-height: 1.6; }
+    .side-nav { display: grid; gap: .28rem; margin: 0 0 1.8rem; }
+    .side-nav a { padding: .42rem .7rem; color: rgba(255,255,255,.72); text-decoration: none; font-size: .91rem; transition: color .18s, background .18s; }
+    .side-nav a:hover, .side-nav a.active { color: #fff; background: rgba(255,255,255,.08); }
+    .social { display: flex; justify-content: center; flex-wrap: wrap; gap: .65rem 1rem; font-size: .8rem; }
+    .social a { color: rgba(255,255,255,.75); text-decoration: none; }
+    .social a:hover { color: #fff; }
+    .side-bottom { margin-top: 1.6rem; color: rgba(255,255,255,.42); font-size: .7rem; }
+    .main { margin-left: var(--sidebar-width); min-height: 100vh; padding: 5rem 3.5rem 3.5rem; }
+    .article { width: min(100%, var(--content-width)); margin: 0 auto; }
+    .topline { display: flex; justify-content: flex-end; margin: -2.2rem 0 2rem; }
+    .theme-toggle, .mobile-menu { border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 999px; padding: .45rem .8rem; font: inherit; font-size: .78rem; cursor: pointer; }
+    .page-title { font-family: "Playfair Display", Georgia, serif; margin: 0; font-size: clamp(2rem, 4vw, 2.65rem); line-height: 1.2; letter-spacing: -.055em; font-weight: 700; }
+    .rule { height: 1px; background: var(--line); margin: 1.25rem 0 1.6rem; }
+    .lead { font-size: 1.08rem; line-height: 1.9; margin: 0 0 1rem; }
+    .quick-links { margin: 1.1rem 0 2rem; font-size: .9rem; }
+    section { padding: 1.65rem 0 1.1rem; border-top: 1px solid var(--line); scroll-margin-top: 1.5rem; }
+    h2 { font-family: "Playfair Display", Georgia, serif; margin: 0 0 1.25rem; font-size: 1.55rem; line-height: 1.35; letter-spacing: -.035em; }
+    h3 { font-family: "DM Sans", system-ui, sans-serif; margin: 1.2rem 0 .25rem; font-size: 1.04rem; line-height: 1.5; font-weight: 650; }
+    p { margin: .25rem 0 .8rem; }
+    .entry { margin: 0 0 1.35rem; }
+    .entry:last-child { margin-bottom: .25rem; }
+    .meta { color: var(--muted); font-size: .88rem; }
+    .entry ul { margin: .35rem 0 .5rem; padding-left: 1.2rem; }
+    .entry li { margin: .18rem 0; }
+    .tagline { color: var(--muted); font-size: .88rem; }
+    .project { margin: 0 0 1.4rem; }
+    .project-title { font-weight: 650; }
+    .project p { margin-top: .25rem; }
+    .skills p { margin: .5rem 0; }
+    .skills strong { font-weight: 650; }
+    .status { display: inline-block; padding: .1rem .5rem; margin-left: .35rem; border: 1px solid rgba(189,118,88,.4); border-radius: 999px; color: var(--accent); font-size: .68rem; font-weight: 600; vertical-align: .12em; }
+    footer { margin-top: 2.8rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .75rem; }
+    .mobile-header { display: none; }
+    body.dark { --bg: #24212a; --text: #e8e1e5; --muted: #b7aeb8; --line: #49414d; --soft: #302b35; --sidebar: #211c26; }
+    body.dark .theme-toggle, body.dark .mobile-menu { border-color: var(--line); }
+    @media (prefers-color-scheme: dark) {
+      body:not(.light) { --bg: #24212a; --text: #e8e1e5; --muted: #b7aeb8; --line: #49414d; --soft: #302b35; --sidebar: #211c26; }
+    }
+    @media (max-width: 900px) {
+      :root { --sidebar-width: 17.5rem; }
+      .main { padding: 4rem 2rem 3rem; }
+    }
+    @media (max-width: 680px) {
+      .sidebar { position: relative; width: 100%; min-height: auto; padding: 1.5rem 1rem; }
+      .sidebar-inner { max-width: 100%; }
+      .avatar { width: 4.5rem; height: 4.5rem; font-size: 1.2rem; margin-bottom: .65rem; }
+      .name { font-size: 1.3rem; }
+      .role { margin: .35rem 0 .8rem; }
+      .side-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: .1rem .3rem; margin-bottom: .8rem; }
+      .side-nav a { padding: .3rem .45rem; font-size: .78rem; }
+      .side-bottom { display: none; }
+      .main { margin-left: 0; padding: 2rem 1.25rem 2.5rem; }
+      .topline { margin: -1rem 0 1.3rem; }
+      .page-title { font-size: 2rem; }
+    }
+  </style>
 </head>
 <body>
-
-<nav id="nav">
-  <div class="container nav-inner">
-    <a href="#home" class="logo">Nawel<span>.</span></a>
-    <ul class="nav-links" id="links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="burger" id="burger" aria-label="Menu"><i class="fas fa-bars"></i></button>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section id="home">
-  <div class="container hero">
-    <div>
-      <h1>Nawel Amara</h1>
-      <div class="role">Computer Engineer · Full-Stack &amp; AI-Integrated Systems</div>
-      <p>I build full-stack web applications and integrate AI into real products — from RAG-powered assistants to industrial data platforms. Currently a TEEP Research Intern at National Taichung University of Education, Taiwan.</p>
-      <div class="btns">
-        <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact Me</a>
-        <a href="Nawel_AMARA-Resume.pdf" class="btn btn-outline" download><i class="fas fa-download"></i> Download CV</a>
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="avatar" aria-label="Nawel Amara initials">NA</div>
+      <a class="name" href="#about">Nawel Amara</a>
+      <p class="role">Graduate Software Engineer<br>AI Research Intern · Taiwan</p>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a href="#about" class="active">About Me</a>
+        <a href="#education">Education</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Technical Skills</a>
+        <a href="#certifications">Certifications</a>
+      </nav>
+      <div class="social">
+        <a href="https://github.com/nawelamara" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/nawel-amara" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:amaranawel662@gmail.com">Email</a>
+        <a href="Nawel_AMARA-Resume.pdf" target="_blank" rel="noopener">CV</a>
       </div>
-      <div class="socials">
-        <a href="https://github.com/nawelamara" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/nawel-amara" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="mailto:amaranawel662@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-      </div>
+      <div class="side-bottom">Sousse, Tunisia · Currently in Taiwan</div>
     </div>
-    <div class="photo">
-      <!-- Photo: upload a file named "profile.jpg" to the same folder as this page -->
-      <img src="1760631992287.jpg" alt="Nawel Amara" onerror="this.outerHTML='<span class=&quot;initials&quot;>NA</span>'">
-    </div>
-  </div>
-</section>
+  </aside>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <span class="eyebrow">About</span>
-    <h2>About Me</h2>
-    <p class="lead">A short introduction</p>
-    <div class="about">
-      <div class="reveal">
-        <p>I'm a <strong>Computer Engineering</strong> graduate from Tunisia with hands-on experience in <strong>full-stack development</strong>, backend systems and data-driven applications.</p>
-        <p>I'm passionate about <strong>Artificial Intelligence</strong> and enjoy bringing AI features into real-world software — for example, a RAG-powered assistant that lets users query industrial data in natural language.</p>
-        <p>I focus on building solutions that are scalable, efficient and user-centered, and I'm looking for international internship and research opportunities in AI, software engineering and data systems.</p>
-      </div>
-      <ul class="facts reveal">
-        <li><i class="fas fa-location-dot"></i><div><small>Location</small>Sousse, Tunisia · Taichung, Taiwan</div></li>
-        <li><i class="fas fa-graduation-cap"></i><div><small>Degree</small>National Engineering Degree, Computer Engineering</div></li>
-        <li><i class="fas fa-language"></i><div><small>Languages</small>Arabic (native), English (TOEIC), French (DELF B2)</div></li>
-        <li><i class="fas fa-briefcase"></i><div><small>Status</small>Open to opportunities</div></li>
-      </ul>
-    </div>
-  </div>
-</section>
+  <main class="main">
+    <article class="article">
+      <div class="topline"><button class="theme-toggle" id="themeToggle" type="button">Switch theme</button></div>
+      <header id="about">
+        <h1 class="page-title">About Me</h1>
+        <div class="rule"></div>
+        <p class="lead">I am <strong>Nawel Amara</strong>, a graduate software engineer from Tunisia with a background in full-stack development, backend systems and data-driven applications. I am currently undertaking a research internship at the <strong>AI &amp; New Media Art Lab, National Taichung University of Education (NTCU), Taiwan</strong>, under the supervision of <strong>Prof. Shih-Yun Lu</strong>.</p>
+        <p>I am developing my research experience in artificial intelligence, with a current focus on vision-language models, human perception and emotion interpretation in visual art. I am interested in pursuing further research in AI, machine learning and related fields while bringing a practical software engineering perspective to research problems.</p>
+        <p class="quick-links"><a href="Nawel_AMARA-Resume.pdf" target="_blank" rel="noopener"><strong>Download CV (PDF)</strong></a> &nbsp;·&nbsp; <a href="https://github.com/nawelamara" target="_blank" rel="noopener">GitHub</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/nawel-amara" target="_blank" rel="noopener">LinkedIn</a> &nbsp;·&nbsp; <a href="mailto:amaranawel662@gmail.com">Email</a></p>
+      </header>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="container">
-    <span class="eyebrow">Skills</span>
-    <h2>Technical Skills</h2>
-    <p class="lead">Tools and technologies I work with</p>
-    <div class="skills">
-      <div class="card reveal"><h3><i class="fas fa-code"></i> Software Development</h3>
-        <div class="tags"><span class="tag">Angular</span><span class="tag">React.js</span><span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">Spring Boot</span><span class="tag">RESTful APIs</span><span class="tag">Microservices</span></div></div>
-      <div class="card reveal"><h3><i class="fas fa-brain"></i> AI &amp; Data</h3>
-        <div class="tags"><span class="tag">RAG Systems</span><span class="tag">LangChain4j</span><span class="tag">LLM Integration</span><span class="tag">Scikit-learn</span><span class="tag">TensorFlow / Keras</span><span class="tag">Pandas</span><span class="tag">NumPy</span></div></div>
-      <div class="card reveal"><h3><i class="fas fa-terminal"></i> Languages</h3>
-        <div class="tags"><span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">Python</span></div></div>
-      <div class="card reveal"><h3><i class="fas fa-database"></i> Databases</h3>
-        <div class="tags"><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">MySQL</span><span class="tag">Firebase Firestore</span></div></div>
-      <div class="card reveal"><h3><i class="fas fa-gears"></i> DevOps &amp; Tools</h3>
-        <div class="tags"><span class="tag">Git</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">Postman</span><span class="tag">SSH / VM</span></div></div>
-      <div class="card reveal"><h3><i class="fas fa-shield-halved"></i> Other</h3>
-        <div class="tags"><span class="tag">JWT Auth</span><span class="tag">Role-Based Access</span><span class="tag">Power BI</span><span class="tag">Dynamics 365</span><span class="tag">Symfony</span></div></div>
-    </div>
-  </div>
-</section>
+      <section id="education">
+        <h2>Education</h2>
+        <div class="entry">
+          <h3>National Engineering Degree in Computer Engineering</h3>
+          <p><strong>EPI — International Multidisciplinary School</strong><br><span class="meta">Sousse, Tunisia · 2023–2026</span></p>
+        </div>
+        <div class="entry">
+          <h3>Applied Bachelor's Degree in Computer Technologies</h3>
+          <p><strong>Higher Institute of Technological Studies of Kelibia</strong><br><span class="meta">Tunisia · 2020–2023</span></p>
+        </div>
+        <div class="entry">
+          <h3>Baccalaureate in Mathematics</h3>
+          <p><strong>Mohamed Boudhina High School</strong><br><span class="meta">Hammamet, Tunisia · 2019–2020</span></p>
+        </div>
+      </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="container">
-    <span class="eyebrow">Experience</span>
-    <h2>Work Experience</h2>
-    <p class="lead">Internships and professional projects</p>
-    <div class="timeline">
-      <div class="job reveal">
-        <div class="job-head"><div><h3>TEEP Research Intern</h3><div class="org">AI &amp; New Media Lab — National Taichung University of Education (NTCU)</div></div><span class="date">09/2026 – Present · Taichung, Taiwan</span></div>
+      <section id="research">
+        <h2>Research</h2>
+        <div class="entry">
+          <h3>Multimodal AI &amp; Emotion Analysis in Visual Art</h3>
+          <p><strong>National Taichung University of Education, Taiwan</strong><br><span class="meta">September 2026–Present</span></p>
+          <ul>
+            <li>Investigate the relationship between viewer disagreement and AI confidence in artwork emotion recognition.</li>
+            <li>Evaluate CLIP, SigLIP, and DINOv2 using the WikiArt Emotions dataset.</li>
+            <li>Apply statistical analysis and embedding-based probing to study how well visual representations capture human emotional agreement.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Professional Experience</h2>
+        <div class="entry">
+          <h3>TEEP Research Intern</h3>
+          <p><strong>AI &amp; New Media Art Lab, National Taichung University of Education</strong><br><span class="meta">Taichung, Taiwan · September 2026–Present</span></p>
+          <ul>
+            <li>Conducting research on vision-language models and human interpretation of emotions in artwork.</li>
+            <li>Exploring how model confidence relates to disagreement among human viewers.</li>
+            <li>Working under the supervision of Prof. Shih-Yun Lu.</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <h3>Final-Year Project — Intelligent Master Data Governance Platform</h3>
+          <p><strong>LEONI Tunisia</strong><br><span class="meta">Tunisia · 2026</span></p>
+          <ul>
+            <li>Developed a full-stack platform to digitize industrial data validation workflows.</li>
+            <li>Implemented a retrieval-augmented generation (RAG) assistant for natural-language querying of project data.</li>
+            <li>Developed audit-trail functionality to support traceability.</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <h3>Full-Stack Developer Intern</h3>
+          <p><strong>DOTCOM — E-Tourism Platform</strong><br><span class="meta">Nabeul, Tunisia · June–September 2025</span></p>
+          <ul>
+            <li>Developed an experience and reservation module for an international e-tourism platform.</li>
+            <li>Implemented availability checks, participant limits, booking-conflict handling and search features.</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <h3>Final-Year Project — ERP Timesheet Module</h3>
+          <p><strong>B2M-IT</strong><br><span class="meta">Tunisia · 2023</span></p>
+          <p>Developed a timesheet and project-management module in Microsoft Dynamics 365, with Power BI dashboards and decision-support functionality.</p>
+        </div>
+        <div class="entry">
+          <h3>Web Development Intern</h3>
+          <p><strong>Hammamet Valley Hub</strong><br><span class="meta">Hammamet, Tunisia · July–August 2022</span></p>
+          <p>Developed an e-commerce application with product catalog, cart and order-management functionality.</p>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Selected Projects</h2>
+        <div class="project">
+          <p class="project-title">Intelligent Master Data Governance Platform</p>
+          <p>Industrial data-governance platform for digitizing validation workflows, with a RAG assistant for natural-language data queries.</p>
+          <p class="tagline">Spring Boot · Angular · PostgreSQL · LangChain4j</p>
+        </div>
+        <div class="project">
+          <p class="project-title">Experience &amp; Reservation Module</p>
+          <p>Experience and booking management for an international e-tourism platform, including availability management and booking-conflict handling.</p>
+          <p class="tagline">Angular · Node.js · PostgreSQL</p>
+        </div>
+        <div class="project">
+          <p class="project-title">Quizmify — MERN Quiz Platform</p>
+          <p>Academic quiz platform with administrator, teacher and student roles, timed quizzes, voucher-based access and real-time scoring.</p>
+          <p class="tagline">MongoDB · Express · React · Node.js</p>
+        </div>
+        <div class="project">
+          <p class="project-title">ERP Timesheet &amp; Decision Support</p>
+          <p>Timesheet and project-management module developed with Microsoft Dynamics 365, complemented by Power BI dashboards.</p>
+          <p class="tagline">Microsoft Dynamics 365 · Power BI</p>
+        </div>
+      </section>
+
+      <section id="skills" class="skills">
+        <h2>Technical Skills</h2>
+        <p><strong>Programming:</strong> Python, Java, JavaScript, TypeScript, SQL, C, PHP, Kotlin, Swift.</p>
+        <p><strong>Web &amp; Backend:</strong> Angular, React, Node.js, Express, Spring Boot, Symfony, Laravel, REST APIs.</p>
+        <p><strong>AI &amp; Data:</strong> CLIP (research), RAG integration, machine learning fundamentals, Pandas, NumPy.</p>
+        <p><strong>Databases:</strong> PostgreSQL, MongoDB, MySQL, SQLite, Firebase Firestore.</p>
+        <p><strong>Tools &amp; Engineering:</strong> Git, GitHub, Docker, GitHub Actions, Postman, SSH, Linux, PM2.</p>
+        <p><strong>Enterprise &amp; Analytics:</strong> Microsoft Dynamics 365, Power BI.</p>
+      </section>
+
+      <section id="certifications">
+        <h2>Certifications</h2>
         <ul>
-          <li>Support research in AI, Deep Learning, Computer Vision and Multimodal AI.</li>
-          <li>Data preprocessing, dataset preparation, model development and experimental evaluation.</li>
-          <li>Explore Large Language Models, BERT-based text analysis and Vision-Language Models.</li>
-          <li>Conduct literature reviews and contribute to technical documentation.</li>
+          <li>AWS Academy Cloud Foundations — AWS Academy Graduate.</li>
+          <li>CCNAv7: Introduction to Networks — Cisco.</li>
+          <li>CCNAv7: Switching, Routing &amp; Wireless Essentials — Cisco.</li>
         </ul>
-      </div>
-      <div class="job reveal">
-        <div class="job-head"><div><h3>Final-Year Project — Intelligent Master Data Governance Platform</h3><div class="org">LEONI Tunisia</div></div><span class="date">02/2026 – 05/2026 · Sousse</span></div>
-        <ul>
-          <li>Built a full-stack platform digitizing Excel-based industrial data validation workflows, reducing manual entry errors and improving traceability.</li>
-          <li>Developed a RAG-powered AI assistant with LangChain4j to query project data in natural language.</li>
-          <li>Designed a JWT-secured Audit Trail module for end-to-end traceability and compliance.</li>
-          <li>Designed flexible PostgreSQL schemas for heterogeneous industrial data.</li>
-        </ul>
-        <div class="tags"><span class="tag">Spring Boot</span><span class="tag">Angular</span><span class="tag">PostgreSQL</span><span class="tag">LangChain4j</span><span class="tag">JWT</span></div>
-      </div>
-      <div class="job reveal">
-        <div class="job-head"><div><h3>Summer Intern — Experience &amp; Reservation Module</h3><div class="org">DotCom (E-Tourism Platform)</div></div><span class="date">06/2025 – 09/2025 · Nabeul</span></div>
-        <ul>
-          <li>Built and integrated a full reservation module into a production international e-tourism platform.</li>
-          <li>Implemented availability checks, participant caps and booking conflict resolution.</li>
-          <li>Modeled PostgreSQL JSONB schemas for multilingual listings; deployed via SSH to a remote VM.</li>
-          <li>Contributed Angular features (search, filters, booking flows) in an Agile team.</li>
-        </ul>
-        <div class="tags"><span class="tag">Node.js</span><span class="tag">Angular</span><span class="tag">PostgreSQL</span><span class="tag">Git</span></div>
-      </div>
-      <div class="job reveal">
-        <div class="job-head"><div><h3>Final-Year Project — ERP Timesheet Module</h3><div class="org">B2M-IT</div></div><span class="date">02/2023 – 06/2023 · Nabeul</span></div>
-        <ul>
-          <li>Developed a timesheet and project management module in Microsoft Dynamics 365.</li>
-          <li>Integrated Power BI dashboards and ML-based decision-support models.</li>
-        </ul>
-        <div class="tags"><span class="tag">Dynamics 365</span><span class="tag">Power BI</span><span class="tag">Machine Learning</span></div>
-      </div>
-      <div class="job reveal">
-        <div class="job-head"><div><h3>Intern — E-Commerce Platform</h3><div class="org">Hammamet Valley Hub</div></div><span class="date">07/2022 – 08/2022 · Hammamet</span></div>
-        <ul>
-          <li>Built a complete e-commerce web application: product catalog, cart and order management.</li>
-        </ul>
-        <div class="tags"><span class="tag">Symfony</span><span class="tag">MySQL</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="container">
-    <span class="eyebrow">Projects</span>
-    <h2>Featured Projects</h2>
-    <p class="lead">A selection of things I've built</p>
-    <div class="projects">
-      <div class="card project reveal">
-        <div class="ic"><i class="fas fa-robot"></i></div>
-        <h3>Master Data Governance Platform</h3>
-        <p>Industrial platform for LEONI replacing Excel validation workflows, with a RAG AI assistant and a full audit trail.</p>
-        <div class="tags"><span class="tag">Spring Boot</span><span class="tag">Angular</span><span class="tag">RAG</span></div>
-      </div>
-      <div class="card project reveal">
-        <div class="ic"><i class="fas fa-plane-departure"></i></div>
-        <h3>Experience &amp; Reservation Module</h3>
-        <p>Booking system for a live e-tourism platform with availability management and conflict resolution.</p>
-        <div class="tags"><span class="tag">Node.js</span><span class="tag">Angular</span><span class="tag">PostgreSQL</span></div>
-      </div>
-      <div class="card project reveal">
-        <div class="ic"><i class="fas fa-circle-question"></i></div>
-        <h3>MERN Quiz Platform</h3>
-        <p>Quiz app with admin/student roles, JWT authentication, voucher-gated access and real-time scoring. Academic project, 2025.</p>
-        <div class="tags"><span class="tag">MongoDB</span><span class="tag">Express</span><span class="tag">React</span><span class="tag">Node.js</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+      <footer>© <span id="year"></span> Nawel Amara · Software Engineering & AI Research</footer>
+    </article>
+  </main>
 
-<!-- EDUCATION -->
-<section id="education">
-  <div class="container">
-    <span class="eyebrow">Education</span>
-    <h2>Education &amp; Certifications</h2>
-    <p class="lead">Academic background</p>
-    <div class="edu-list">
-      <div class="edu reveal"><div><h3>National Engineering Degree in Computer Engineering</h3><div class="school">EPI — International Multidisciplinary School</div></div><span class="date">2023 – 2026 · Sousse</span></div>
-      <div class="edu reveal"><div><h3>Applied Bachelor's Degree in Computer Technologies</h3><div class="school">Higher Institute of Technological Studies of Kelibia</div></div><span class="date">2020 – 2023 · Nabeul</span></div>
-      <div class="edu reveal"><div><h3>Baccalaureate in Mathematics</h3><div class="school">Mohamed Boudhina High School</div></div><span class="date">2019 – 2020 · Hammamet</span></div>
-    </div>
-    <h3 class="sub">Certifications</h3>
-    <div class="certs">
-      <div class="cert reveal"><i class="fab fa-aws"></i><span>AWS Academy Cloud Foundations<small>AWS Academy Graduate</small></span></div>
-      <div class="cert reveal"><i class="fas fa-network-wired"></i><span>CCNAv7: Introduction to Networks<small>Cisco</small></span></div>
-      <div class="cert reveal"><i class="fas fa-route"></i><span>CCNAv7: Switching, Routing &amp; Wireless Essentials<small>Cisco</small></span></div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <span class="eyebrow">Contact</span>
-    <h2>Get In Touch</h2>
-    <p class="lead">Open to internships, research positions and collaborations</p>
-    <div class="contact">
-      <div class="c-list reveal">
-        <a class="c-item" href="mailto:amaranawel662@gmail.com"><i class="fas fa-envelope"></i><div><small>Email</small><span>amaranawel662@gmail.com</span></div></a>
-        <a class="c-item" href="https://www.linkedin.com/in/nawel-amara" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i><div><small>LinkedIn</small><span>nawel-amara</span></div></a>
-        <a class="c-item" href="https://github.com/nawelamara" target="_blank" rel="noopener"><i class="fab fa-github"></i><div><small>GitHub</small><span>nawelamara</span></div></a>
-      </div>
-      <form id="form" class="reveal">
-        <input id="name" type="text" placeholder="Your name" required>
-        <input id="email" type="email" placeholder="Your email" required>
-        <textarea id="msg" placeholder="Your message" required></textarea>
-        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer>© <span id="year"></span> Nawel Amara. All rights reserved.</footer>
-
-<script>
-const nav=document.getElementById('nav'),links=document.querySelectorAll('.nav-links a'),secs=document.querySelectorAll('section');
-addEventListener('scroll',()=>{
-  nav.classList.toggle('scrolled',scrollY>10);
-  let cur='';secs.forEach(s=>{if(scrollY>=s.offsetTop-100)cur=s.id});
-  links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
-});
-const menu=document.getElementById('links');
-document.getElementById('burger').onclick=()=>menu.classList.toggle('open');
-links.forEach(a=>a.onclick=()=>menu.classList.remove('open'));
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-document.getElementById('form').addEventListener('submit',e=>{
-  e.preventDefault();
-  const n=document.getElementById('name').value,em=document.getElementById('email').value,m=document.getElementById('msg').value;
-  location.href='mailto:amaranawel662@gmail.com?subject='+encodeURIComponent('Portfolio contact from '+n)+'&body='+encodeURIComponent(m+'\n\n'+n+' ('+em+')');
-});
-document.getElementById('year').textContent=new Date().getFullYear();
-</script>
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click', () => {
+      const dark = document.body.classList.toggle('dark');
+      document.body.classList.toggle('light', !dark);
+      toggle.textContent = dark ? 'Switch to light' : 'Switch to dark';
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const navLinks = [...document.querySelectorAll('.side-nav a')];
+    const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) navLinks.forEach(a => a.classList.toggle('active', a.hash === '#' + entry.target.id));
+      });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    sections.forEach(section => observer.observe(section));
+  </script>
 </body>
 </html>
